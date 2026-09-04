@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Autonoma — AI automation that runs itself</title>
+<meta name="description" content="Autonoma turns repetitive busywork into self-running AI workflows. Describe the outcome, and autonomous agents handle the rest. Join the waitlist." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2215%22 fill=%22%230a0a0f%22/><circle cx=%2216%22 cy=%228%22 r=%223%22 fill=%22%2322d3ee%22/><circle cx=%228%22 cy=%2222%22 r=%223%22 fill=%22%236366f1%22/><circle cx=%2224%22 cy=%2222%22 r=%223%22 fill=%22%236366f1%22/><path d=%22M16 8L8 22M16 8L24 22M8 22H24%22 stroke=%22%2322d3ee%22 stroke-width=%221.5%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28">
+          <circle cx="16" cy="8" r="3.4" fill="#22d3ee"/>
+          <circle cx="7" cy="24" r="3.4" fill="#6366f1"/>
+          <circle cx="25" cy="24" r="3.4" fill="#6366f1"/>
+          <path d="M16 8L7 24M16 8L25 24M7 24H25" stroke="#8b8ff2" stroke-width="1.4" fill="none"/>
+        </svg>
+      </span>
+      <span class="brand-name">Autonoma</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <a href="#waitlist" class="btn btn-primary btn-small nav-cta">Join waitlist</a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav" hidden>
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#faq">FAQ</a>
+    <a href="#waitlist" class="btn btn-primary btn-small">Join waitlist</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <canvas id="networkCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        Now building &middot; early access this fall
+      </p>
+
+      <h1 class="hero-title reveal">
+        Automation that <span class="text-gradient">runs itself.</span>
+      </h1>
+
+      <p class="hero-subtitle reveal">
+        Autonoma turns your team's repetitive busywork into self-running AI workflows.
+        Describe the outcome in plain English — autonomous agents plan it, build it,
+        and keep it running.
+      </p>
+
+      <form class="waitlist-form reveal" id="waitlistForm" novalidate>
+        <label class="sr-only" for="emailInput">Email address</label>
+        <input
+          type="email"
+          id="emailInput"
+          name="email"
+          class="waitlist-input"
+          placeholder="you@company.com"
+          autocomplete="email"
+          required
+        />
+        <button type="submit" class="btn btn-primary" id="waitlistSubmit">
+          <span class="btn-label">Join the waitlist</span>
+        </button>
+      </form>
+
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+      <p class="hero-meta reveal">
+        <span id="waitlistCount">Be among the first to join</span>
+        &nbsp;&middot;&nbsp; No spam. Unsubscribe anytime.
+      </p>
+    </div>
+
+    <div class="hero-video-slot" id="heroVideoSlot" hidden>
+      <!--
+        Higgsfield hero animation slot.
+        Once a Higgsfield-generated hero video/clip is available, drop the
+        exported file at public/img/hero-animation.mp4 (and an optional
+        hero-animation-poster.jpg), then remove the `hidden` attribute above
+        and below, or swap this block for:
+
+        <video class="hero-video" autoplay muted loop playsinline
+               poster="img/hero-animation-poster.jpg">
+          <source src="img/hero-animation.mp4" type="video/mp4" />
+        </video>
+
+        See README.md → "Swapping in the Higgsfield hero animation".
+      -->
+    </div>
+  </section>
+
+  <section class="logos-strip reveal" aria-label="Built for">
+    <div class="container logos-strip-inner">
+      <p>Built for founders, ops, and revenue teams tired of duct-taped Zapier chains</p>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container">
+      <h2 class="section-title reveal">Everything you need, nothing you have to babysit</h2>
+      <p class="section-subtitle reveal">
+        Autonoma isn't another workflow builder. It's a team of AI agents that plan,
+        execute, and recover — so automations keep working while you don't think about them.
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 14h6v6h-6zM4 20l16-16" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Visual workflow builder</h3>
+          <p>Drag, drop, and connect actions across your stack in minutes — or just describe what you want and let Autonoma draft it.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Autonomous agents</h3>
+          <p>Agents that plan multi-step work, execute it, and recover from errors on their own — no babysitting a brittle script.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Any tool, any API</h3>
+          <p>Native connectors for your CRM, inbox, docs, and spreadsheets, plus an open API for anything custom.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Human-in-the-loop</h3>
+          <p>Require approval on sensitive steps, or let trusted flows run fully solo. You decide where the line is.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M8 10V7a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+          </div>
+          <h3>Enterprise-grade security</h3>
+          <p>Encrypted secrets, scoped permissions, and a full audit trail for every action an agent takes.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Built-in observability</h3>
+          <p>See every run, every decision, and every hour saved in one live dashboard.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title reveal">From idea to running automation in three steps</h2>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step-number">01</span>
+          <h3>Describe the outcome</h3>
+          <p>Tell Autonoma what you want automated, in plain English — no flowcharts required.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-number">02</span>
+          <h3>Autonoma builds the flow</h3>
+          <p>Our AI assembles, tests, and explains a working automation, using the tools you already have.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-number">03</span>
+          <h3>It runs itself</h3>
+          <p>Deploy once. Autonoma monitors every run, adapts to changes, and reports back.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="stats reveal">
+    <div class="container stats-grid">
+      <div class="stat">
+        <span class="stat-value">10x</span>
+        <span class="stat-label">faster to ship an automation</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">24/7</span>
+        <span class="stat-label">autonomous execution</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">0</span>
+        <span class="stat-label">lines of code required</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container container-narrow">
+      <h2 class="section-title reveal">Questions, answered</h2>
+
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>When does Autonoma launch?</summary>
+          <p>We're rolling out early access this fall. Waitlist members get first access, in order of signup.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Do I need to know how to code?</summary>
+          <p>No. Describe what you want in plain English, or use the visual builder. Developers can drop into code for advanced logic if they want to.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>What tools does Autonoma work with?</summary>
+          <p>We're launching with native connectors for the most common CRMs, inboxes, docs, and spreadsheets, plus a general API/webhook connector for everything else.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Is my data secure?</summary>
+          <p>Yes. Secrets are encrypted at rest, every agent action is scoped and logged, and sensitive steps can require human approval before they run.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>How much will it cost?</summary>
+          <p>Pricing will be announced closer to launch. Waitlist members will get an early-access discount.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section reveal" id="waitlist">
+    <div class="container cta-inner">
+      <h2>Be first in line when Autonoma launches</h2>
+      <p>Join the waitlist and we'll email you the moment early access opens.</p>
+
+      <form class="waitlist-form waitlist-form-footer" id="waitlistFormFooter" novalidate>
+        <label class="sr-only" for="emailInputFooter">Email address</label>
+        <input
+          type="email"
+          id="emailInputFooter"
+          name="email"
+          class="waitlist-input"
+          placeholder="you@company.com"
+          autocomplete="email"
+          required
+        />
+        <button type="submit" class="btn btn-primary" id="waitlistSubmitFooter">
+          <span class="btn-label">Join the waitlist</span>
+        </button>
+      </form>
+      <p class="form-status" id="formStatusFooter" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="24" height="24">
+          <circle cx="16" cy="8" r="3.4" fill="#22d3ee"/>
+          <circle cx="7" cy="24" r="3.4" fill="#6366f1"/>
+          <circle cx="25" cy="24" r="3.4" fill="#6366f1"/>
+          <path d="M16 8L7 24M16 8L25 24M7 24H25" stroke="#8b8ff2" stroke-width="1.4" fill="none"/>
+        </svg>
+      </span>
+      <span class="brand-name">Autonoma</span>
+    </a>
+
+    <p class="footer-tagline">Automation that runs itself.</p>
+
+    <div class="footer-links">
+      <a href="mailto:hello@autonoma.ai">hello@autonoma.ai</a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+
+    <p class="footer-copy">&copy; <span id="year"></span> Autonoma. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
