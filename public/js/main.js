@@ -45,8 +45,23 @@
     revealEls.forEach((el) => el.classList.add("in-view"));
   }
 
-  /* ---------- Hero particle network ---------- */
+  /* ---------- Hero video (falls back to canvas particle network) ---------- */
   const canvas = document.getElementById("networkCanvas");
+  const heroVideo = document.getElementById("heroVideo");
+  if (heroVideo && canvas) {
+    heroVideo.addEventListener("playing", () => {
+      canvas.classList.add("hero-canvas--dimmed");
+    });
+    heroVideo.addEventListener("error", () => {
+      canvas.classList.remove("hero-canvas--dimmed");
+    });
+    if (prefersReducedMotion) {
+      heroVideo.pause();
+      heroVideo.removeAttribute("autoplay");
+    }
+  }
+
+  /* ---------- Hero particle network ---------- */
   if (canvas && !prefersReducedMotion) {
     const ctx = canvas.getContext("2d");
     let width, height, particles, animationId;

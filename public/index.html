@@ -96,21 +96,20 @@
       </p>
     </div>
 
-    <div class="hero-video-slot" id="heroVideoSlot" hidden>
-      <!--
-        Higgsfield hero animation slot.
-        Once a Higgsfield-generated hero video/clip is available, drop the
-        exported file at public/img/hero-animation.mp4 (and an optional
-        hero-animation-poster.jpg), then remove the `hidden` attribute above
-        and below, or swap this block for:
-
-        <video class="hero-video" autoplay muted loop playsinline
-               poster="img/hero-animation-poster.jpg">
-          <source src="img/hero-animation.mp4" type="video/mp4" />
-        </video>
-
-        See README.md → "Swapping in the Higgsfield hero animation".
-      -->
+    <div class="hero-video-slot" id="heroVideoSlot">
+      <!-- Higgsfield-generated hero animation. Falls back to the canvas
+           particle network above if the video fails to load or play. -->
+      <video
+        id="heroVideo"
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      >
+        <source src="img/hero-animation.mp4" type="video/mp4" />
+      </video>
     </div>
   </section>
 

@@ -22,8 +22,11 @@ data/waitlist.json Waitlist signups (created at runtime, gitignored)
 
 The landing page includes:
 
-- Hero section with an animated canvas particle network (CSS/JS — no
-  external assets required) and a live waitlist counter
+- Hero section with a Higgsfield-generated looping background animation
+  (`public/img/hero-animation.mp4`) and a live waitlist counter. If the
+  video can't load or play, it falls back automatically to a built-in
+  canvas particle-network animation (CSS/JS, no external assets) so the
+  hero never breaks
 - Feature grid, "how it works" steps, stats, and FAQ, all with
   scroll-reveal animations
 - A waitlist signup form in the hero and in the footer CTA
@@ -56,34 +59,28 @@ in production, swap the JSON-file storage in `server.js` for a real
 database (Postgres, SQLite, etc.); the file storage here is intentionally
 simple for getting a working waitlist live fast.
 
-## Swapping in the Higgsfield hero animation
+## The Higgsfield hero animation
 
-The hero currently uses a lightweight built-in canvas animation (an
-animated particle network) so the page ships without any external
-dependency. To replace it with a Higgsfield-generated hero video once you
-have credits/a plan on Higgsfield:
+`public/img/hero-animation.mp4` is a looping abstract "AI network" clip
+generated with Higgsfield (model: `seedance_2_5`, 16:9, 720p, 6s, no
+audio), styled to the brand palette (indigo `#6366f1` → cyan `#22d3ee`).
+It plays as the hero background (`#heroVideo` in `public/index.html`); a
+dark radial overlay (`.hero-video-slot::after` in `style.css`) keeps hero
+text legible over it.
 
-1. Generate a hero clip with Higgsfield (e.g. a looping abstract
-   "AI network / automation" animation in your brand colors —
-   `#6366f1` → `#22d3ee`).
-2. Export it and save it as `public/img/hero-animation.mp4` (add a poster
-   frame as `public/img/hero-animation-poster.jpg` if you want one).
-3. In `public/index.html`, find the `#heroVideoSlot` block in the hero
-   section and replace it with:
+The built-in canvas particle-network animation is still in the page as an
+automatic fallback: `public/js/main.js` dims the canvas once the video
+fires its `playing` event, and un-dims it if the video ever fires `error`
+(unsupported format, blocked autoplay, slow network, etc.), so the hero
+never shows a blank background.
 
-   ```html
-   <div class="hero-video-slot">
-     <video class="hero-video" autoplay muted loop playsinline
-            poster="img/hero-animation-poster.jpg">
-       <source src="img/hero-animation.mp4" type="video/mp4" />
-     </video>
-   </div>
-   ```
+To regenerate or swap the clip:
 
-4. Add a `.hero-video` CSS rule in `public/css/style.css` to size/position
-   it (e.g. `position: absolute; inset: 0; width: 100%; height: 100%;
-   object-fit: cover; z-index: -2;`), and remove or dial back the
-   `.hero-canvas` opacity if you want the video as the sole background.
+1. Generate a new hero clip with Higgsfield (looping abstract
+   "AI network / automation" motion, brand colors above).
+2. Export it and overwrite `public/img/hero-animation.mp4` (same
+   filename — no other changes needed), or point the `<source>` in
+   `public/index.html` at a new filename.
 
 ## Brand
 
