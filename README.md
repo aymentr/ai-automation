@@ -61,12 +61,21 @@ simple for getting a working waitlist live fast.
 
 ## The Higgsfield hero animation
 
-`public/img/hero-animation.mp4` is a looping abstract "AI network" clip
-generated with Higgsfield (model: `seedance_2_5`, 16:9, 720p, 6s, no
-audio), styled to the brand palette (indigo `#6366f1` → cyan `#22d3ee`).
-It plays as the hero background (`#heroVideo` in `public/index.html`); a
-dark radial overlay (`.hero-video-slot::after` in `style.css`) keeps hero
-text legible over it.
+`public/img/hero-animation.mp4` ("Genesis Network") is a cinematic clip
+generated with Higgsfield (model: `seedance_2_5`, 1080p, 8s, no audio,
+high bitrate): a galaxy of glowing light particles converges into a vast
+three-dimensional neural network as the camera pushes through it —
+volumetric light, lens flares, and pulsing node connections. It plays as
+the hero background (`#heroVideo` in `public/index.html`); a dark radial
+overlay (`.hero-video-slot::after` in `style.css`) keeps hero text legible
+over it.
+
+Note: `seedance_2_5` at `bitrate_mode: "high"` + 1080p renders in **HEVC
+(H.265, 10-bit)**, which most browsers other than Safari can't play
+natively in `<video>`. The shipped file was re-encoded to H.264
+(`ffmpeg -c:v libx264 -crf 21 -preset slow -pix_fmt yuv420p -movflags
++faststart`) for universal playback — always do this conversion before
+using a `bitrate_mode: "high"` 1080p Higgsfield clip as a `<video>` source.
 
 The built-in canvas particle-network animation is still in the page as an
 automatic fallback: `public/js/main.js` dims the canvas once the video
